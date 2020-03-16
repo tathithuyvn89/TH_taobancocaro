@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thuc hanh tao game caro don gian</title>
+</head>
+<body>
+<form>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame" />
+
+</form>
+<script>
+    let b= document.getElementById("carogame");
+    let board= [];
+    let data= "";
+    for (i=0; i<5; i++){
+        board[i]= new Array (0, 0, 0, 0, 0);
+    }
+    for (let  i=0; i<5; i++){
+        data+= "<br/>";
+        for (j=0; j<5; j++){
+            data+=board[i][j]+ "&nbsp;&nbsp;&nbsp;&nbsp;";
+            console.log(board[i]+"<br/>");
+        }
+    }
+    data+="<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>" ;
+   b.innerHTML=data;
+    //Thay doi gia tri trong bang caro khi an nut change value
+    function changeValue() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        data = "";
+        board[positionX][positionY] = "x";
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j]+"&nbsp;&nbsp;&nbsp;&nbsp;" ;
+                console.log(data);
+            }
+        }
+
+        data+="<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
+        b.innerHTML= "<hr>"+ data;
+
+    }
+
+</script>
+</body>
+</html>
